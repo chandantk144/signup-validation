@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="validation.css">
+  </head>
+  <body>
+    <div class="form_container">
+      <h2>Login Form</h2>
+      <form action="">
+        <input
+          type="email"
+          placeholder="email-id"
+          id="emailid"
+          required
+          name="femail"
+        /><br />
+        <p id="emailerror" class="error"></p>
+
+        <input
+          type="text"
+          placeholder="name"
+          pattern="[a-zA-Z ]*$"
+          required
+          id="username"
+          name="fname"
+        /><br />
+        <p id="usererror" class="error"></p>
+
+        <input
+          type="number"
+          placeholder="phone"
+          required
+          id="phone"
+          name="fphone"
+        /><br />
+        <p id="phoneerror" class="error"></p>
+
+        <input
+          type="password"
+          placeholder="password"
+          required
+          id="password"
+          name="fpassword"
+        /><br />
+        <p id="passworderror" class="error"></p>
+
+        <input
+          type="address"
+          placeholder="address"
+          required
+          id="address"
+          name="faddress"
+        /><br />
+        <p id="adresserror" class="error"></p>
+        <input type="submit" class="btn" value="submit">
+      </form>
+    </div>
+  </body>
+</html>
