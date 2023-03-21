@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="validation.css">
+    <link rel="stylesheet" href="validation.css" />
   </head>
   <body>
     <div class="form_container">
@@ -56,8 +56,78 @@
           name="faddress"
         /><br />
         <p id="adresserror" class="error"></p>
-        <input type="submit" class="btn" value="submit">
+        <input type="submit" class="btn" value="submit" />
       </form>
     </div>
+    <script>
+      function clearerrors() {
+        errors = document.getElementsByClassName("error");
+        for (let item of errors) {
+          item.innerHTML = "";
+        }
+      }
+
+      function seterror(id, error) {
+        document.getElementById(id).innerHTML = error;
+      }
+      function validateform() {
+        var returnval = true;
+        clearerrors();
+        var name = document.getElementById("username").value;
+        if (name.startswith(" ")) {
+          seterror("usererror", "*name cannot start with a space");
+          returnval = false;
+        } else if (name.endwith(" ")) {
+          seterror("usererror", "*name cannot ends with space");
+          returnval = false;
+        }
+        var email = document.getElementById("emailid").value;
+        if (email.length > 50) {
+          seterror("emailerror", "*email is too long");
+          returnval = false;
+        }
+        var phone = document.getElementById("phone").value;
+        if (phone.length != 10) {
+          seterror(
+            "phoneerror",
+            "*phone number should be with of 10 digits only"
+          );
+          returnval = false;
+        }
+        var password = document.getElementById("password").value;
+        if (password.length < 6 || password.length > 20) {
+          seterror(
+            "passworderror",
+            "*password should contain atleast 6 characters and not more than 20 characters"
+          );
+          returnval = false;
+        } else if (password.search(/[0-9]/) == -1) {
+          seterror(
+            "passworderror",
+            "*password should contain atleast one numeric value"
+          );
+          returnval = false;
+        } else if (password.search(/[a-z]/) == -1) {
+          seterror(
+            "passworderror",
+            "*password should contain atleast one lowercase letter"
+          );
+          returnval = false;
+        } else if (passwoed.search(/[!\@\#\$\&\*\^]/) == -1) {
+          seterror(
+            "passworderror",
+            "*password should contain atleast one special character"
+          );
+          returnval = false;
+        }
+        var address = document.getElementById("address").value;
+        console.log(address);
+        if (address.length < 10) {
+          seterror("addresserror", "*address cant be less than 10 characters");
+          returnval = false;
+        }
+        return returnval;
+      }
+    </script>
   </body>
 </html>
